@@ -1,3 +1,3 @@
-import Hello from './components/Hello';
+import ContextMenu from './components/ContextMenu';
 
-export { Hello };
+export { ContextMenu };
