@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import * as React from 'react';
+import React, { useRef, useEffect }  from 'react';
 
 
 const styles = {
@@ -13,15 +13,23 @@ const styles = {
   }),
 };
 
-export interface HelloProps {
-  compiler: string;
-  framework: string;
-}
 
-export default function ContextMenu(props: HelloProps) {
-  return (
-    <div css={styles.root} className="context-menu">
-      Test component
-    </div>
-  );
+export default function ContextMenu(props) {
+  
+  const showContext = props.show;
+
+  const contextEl = useRef();
+
+   useEffect(() => {
+    console.log('Updateeeee ');
+  });
+
+  if(showContext) {
+    return (
+      <div css={styles.root} className="context-menu">
+        {props.children}
+      </div>
+    );
+  }
+  return null;
 }
