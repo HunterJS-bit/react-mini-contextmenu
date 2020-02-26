@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import React, { useRef, useEffect }  from 'react';
+import React, { useRef, useEffect, useState }  from 'react';
 
 
 const styles = {
@@ -18,15 +18,25 @@ export default function ContextMenu(props) {
   
   const showContext = props.show;
 
+  const [axes, setState] = useState({
+    x: 0,
+    y: 0
+  });
+
+
   const contextEl = useRef();
 
-   useEffect(() => {
+   useEffect((e) => {
     console.log('Updateeeee ');
+    if (showContext) {
+    console.log(e);
+       contextEl.current.focus();
+    }
   });
 
   if(showContext) {
     return (
-      <div css={styles.root} className="context-menu">
+      <div css={styles.root} ref={contextEl} className="context-menu">
         {props.children}
       </div>
     );

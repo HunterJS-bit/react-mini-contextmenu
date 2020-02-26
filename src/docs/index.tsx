@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import ContextMenu from '../components/ContextMenu';
@@ -7,17 +7,21 @@ function Home(props) {
 	
     const [count, setCount] = useState(false);
 
-    const onClickfn = () => {
-    	console.log('Clicked ');
-    	console.log(count);
+      // Similar to componentDidMount and componentDidUpdate:
+	  useEffect(() => {
+	      document.addEventListener('contextmenu',onClickfn);
+	  });
+
+    const onClickfn = (e) => {
+    	e.preventDefault();
     	setCount(!count);
     }
 
   return (
-    <div>
+    <div >
       <h1>Hello, world!</h1>
       { count.toString() }
-      	<button onClick={onClickfn}>Click me</button>
+      	<button>Click me</button>
       	  <ContextMenu show={count}> 
 	  	asdasdasdasd
 	  </ContextMenu>
