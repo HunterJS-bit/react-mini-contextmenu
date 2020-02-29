@@ -16,27 +16,35 @@ const styles = {
 
 export default function ContextMenu(props) {
   
-  const showContext = props.show;
+  let event = props.show;
 
-  const [axes, setState] = useState({
-    x: 0,
-    y: 0
+  const [state, setState] = useState({
+    left: 0,
+    top: 0,
+    context: event,
   });
 
 
   const contextEl = useRef();
 
    useEffect((e) => {
-    console.log('Updateeeee ');
-    if (showContext) {
-    console.log(e);
-       contextEl.current.focus();
+    if (event) { 
+      // contextEl.current.focus();
+        const left = event.pageX || event.clientX;
+        const top = event.pageY || event.clientY;
+      console.log(state);
+      setState(...state, { top: top })
     }
   });
 
-  if(showContext) {
+
+  const handleBlur = () => {
+      event = null;
+  }
+
+  if(event) {
     return (
-      <div css={styles.root} ref={contextEl} className="context-menu">
+      <div tabIndex="0" css={styles.root}  ref={contextEl} className="context-menu" onBlur={handleBlur}>
         {props.children}
       </div>
     );

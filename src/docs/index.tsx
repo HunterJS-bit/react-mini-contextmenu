@@ -14,7 +14,7 @@ function Home(props) {
 
     const onClickfn = (e) => {
     	e.preventDefault();
-    	setCount(!count);
+    	setCount(e);
     }
 
   return (
