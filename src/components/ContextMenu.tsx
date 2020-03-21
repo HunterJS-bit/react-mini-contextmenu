@@ -17,7 +17,6 @@ const styles = {
 
 export default function ContextMenu(props: any) {
   
-  let event = props.show;
 
   const [state, setState] = useState({
     a: null,
@@ -30,8 +29,6 @@ export default function ContextMenu(props: any) {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    console.log('Joks');
-  
     setState(state => ({ ...state, a: props.show }));
   }, [props.show]);
 
@@ -46,13 +43,12 @@ export default function ContextMenu(props: any) {
   }, [state.a]);
 
   const handleBlur = () => {
-    console.log('Hadnle blur')
-    setState(state => ({ ...state, a: null }));
+    setState(state => ({ ...state, a: null, styles: { left: 0, top: 0 } }));
   }
 
   if(state.a) {
     return (
-      <div tabIndex="0" style={state.styles}  ref={inputRef} className="context-menu" onBlur={handleBlur}>
+      <div tabIndex="0" style={state.styles}  ref={inputRef} className="context" onBlur={handleBlur}>
         {props.children}
       </div>
     );
