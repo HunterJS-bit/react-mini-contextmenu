@@ -14,37 +14,34 @@ const styles = {
 };
 
 
-export default function ContextMenu(props) {
+export default function ContextMenu(props: any) {
   
   let event = props.show;
 
   const [state, setState] = useState({
-    left: 0,
-    top: 0,
-    context: event,
+    a: null,
   });
 
+  const inputRef = useRef(null);
 
-  const contextEl = useRef();
+  useEffect(() => {
+    setState(state => ({ ...state, a: props.show }));
+  }, [props.show]);
 
-   useEffect((e) => {
-    if (event) { 
-      // contextEl.current.focus();
-        const left = event.pageX || event.clientX;
-        const top = event.pageY || event.clientY;
-      console.log(state);
-      setState(...state, { top: top })
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
-  });
-
+  }, [state.a]);
 
   const handleBlur = () => {
-      event = null;
+    console.log('Hadnle blur')
+    setState(state => ({ ...state, a: null }));
   }
 
-  if(event) {
+  if(state.a) {
     return (
-      <div tabIndex="0" css={styles.root}  ref={contextEl} className="context-menu" onBlur={handleBlur}>
+      <div tabIndex="0" css={styles.root}  ref={inputRef} className="context-menu" onBlur={handleBlur}>
         {props.children}
       </div>
     );

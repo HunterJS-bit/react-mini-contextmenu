@@ -20,7 +20,6 @@ function Home(props) {
   return (
     <div >
       <h1>Hello, world!</h1>
-      { count.toString() }
       	<button>Click me</button>
       	  <ContextMenu show={count}> 
 	  	asdasdasdasd
