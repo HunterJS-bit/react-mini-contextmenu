@@ -1,55 +1,53 @@
 import { css } from '@emotion/core';
 import React, { useRef, useEffect, useState }  from 'react';
-import classes from './style.css';
 
-
-const styles = {
-  root: css({
-    position: "fixed",
-    padding: "5px 10px",
-    background: "white",
-    zIndex: 999,
-    outline: "none",
-    boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
-  }),
-};
+const baseStyles = {
+  position: 'fixed',
+  padding: '5px 10px',
+  background: 'white',
+  zIndex: 999,
+  outline: 'none',
+  boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+} ;
 
 
 export default function ContextMenu(props: any) {
   
 
   const [state, setState] = useState({
-    a: null,
+    event: null,
     styles: {
-      top: 0,
-      left: 0,
+      top: 0 as number,
+      left: 0 as number,
     }
   });
 
   const inputRef = useRef(null);
 
   useEffect(() => {
-    setState(state => ({ ...state, a: props.show }));
-  }, [props.show]);
+    setState(state => ({ ...state, event: props.event }));
+  }, [props.event]);
 
   useEffect(() => {
-    if (state.a) {
-      const left = state.a.pageX || state.a.clientX;
-      const top = state.a.pageY || state.a.clientY;
+    if (state.event) {
+      const left = state.event.pageX || state.event.clientX;
+      const top = state.event.pageY || state.event.clientY;
     
-      setState(state => ({ ...state, styles: { left, top } }));
+      setState(state => ({ ...state, styles: { left: left + 5, top  } }));
       inputRef.current.focus();
     }
-  }, [state.a]);
+  }, [state.event]);
 
   const handleBlur = () => {
-    setState(state => ({ ...state, a: null, styles: { left: 0, top: 0 } }));
+      setState(state => ({ ...state, event: null, styles: { left: 0, top: 0 } }));
   }
 
-  if(state.a) {
+  if(state.event) {
     return (
-      <div tabIndex="0" style={state.styles}  ref={inputRef} className="context" onBlur={handleBlur}>
-        {props.children}
+      <div tabIndex="0" style={{ ...baseStyles, ...state.styles}}  ref={inputRef} className="context" onBlur={handleBlur}>
+        <div className="wrapper">
+           {props.children}
+        </div>
       </div>
     );
   }

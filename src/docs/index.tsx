@@ -3,13 +3,18 @@ import * as ReactDOM from 'react-dom';
 
 import ContextMenu from '../components/ContextMenu';
 
+const wrapper = {
+  position: "fixed",
+  bottom: "255px",
+};
+
 function Home(props) {
 	
     const [count, setCount] = useState(false);
 
       // Similar to componentDidMount and componentDidUpdate:
 	  useEffect(() => {
-	      document.addEventListener('contextmenu',onClickfn);
+	     // document.addEventListener('contextmenu',onClickfn);
 	  });
 
     const onClickfn = (e) => {
@@ -17,13 +22,23 @@ function Home(props) {
     	setCount(e);
     }
 
+    const clicked = (e) => {
+      e.preventDefault();
+      // e.persist();
+      console.log('Clickedddd ');
+      console.log(e)
+      setCount(e);
+    }
   return (
     <div >
       <h1>Hello, world!</h1>
       	<button>Click me</button>
-      	  <ContextMenu show={count}> 
+      	  <ContextMenu event={count}> 
+          <li>test</li>
+          <li>darkooo</li>
 	  	asdasdasdasd
 	  </ContextMenu>
+    <button style={wrapper}  onContextMenu={clicked}>Click me Down</button>
     </div>
   );
 }
