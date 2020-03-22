@@ -16,8 +16,8 @@ export default function ContextMenu(props: any) {
   const [state, setState] = useState({
     event: null,
     styles: {
-      top: 0,
-      left: 0
+      top: 0 as number,
+      left: 0 as number
     }
   });
 
@@ -33,8 +33,8 @@ export default function ContextMenu(props: any) {
 
   useEffect(() => {
     if (state.event) {
-      const left = state.event.pageX || state.event.clientX;
-      const top = state.event.pageY || state.event.clientY;
+      const left = state.event.left || state.event.pageX || state.event.clientX;
+      const top = state.event.top || state.event.pageY || state.event.clientY;
     
       setState(state => ({ ...state, styles: { left: left + 5, top  } }));
       inputRef.current.focus();

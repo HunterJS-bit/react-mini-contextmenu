@@ -1,44 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import ContextMenu from '../components/ContextMenu';
 
-const wrapper = {
-  position: "fixed",
-  bottom: "255px",
-};
+const buttonStyle = {
+  display: 'inline-block',
+  padding: '0.3em 1.2em',
+  margin: '0 0.1em 0.1em 0',
+  border: '0.16em solid rgba(255,255,255,0)',
+  boxSizing: 'border-box',
+  textDecoration:'none',
+  fontWeight: 300,
+  color: '#FFFFFF',
+  textShadow: '0 0.04em 0.04em rgba(0,0,0,0.35)',
+  textAlign: 'center',
+  backgroundColor: '#4e9af1'
+} as CSSProperties;
 
-function Home(props) {
+const listStyle = {
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  color: '#333',
+} as CSSProperties;
+
+const listItem = {
+  minWidth: 150,
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  padding: '8px 12px',
+  backgroundColor: '#fff',
+  borderBottom: '1px solid #ecf0f1',
+  cursor: 'pointer'
+} as CSSProperties;
+
+function Home() {
 	
-    const [count, setCount] = useState(false);
+    const [event, setEvent] = useState(false);
 
-      // Similar to componentDidMount and componentDidUpdate:
-	  useEffect(() => {
-	     // document.addEventListener('contextmenu',onClickfn);
-	  });
-
-    const onClickfn = (e) => {
-    	e.preventDefault();
-    	setCount(e);
+    const clicked = (e: MouseEvent | any) => {
+      e.preventDefault();
+      e.persist();
+      console.log('should open context menu');
+      setEvent(e);
     }
 
-    const clicked = (e) => {
-      e.preventDefault();
-      // e.persist();
-      console.log('Clickedddd ');
-      console.log(e)
-      setCount(e);
+    const doAction = () => {
+      alert('Done action, closing context menu');
+      setEvent(false);
     }
   return (
     <div >
-      <h1>Hello, world!</h1>
-      	<button>Click me</button>
-      	  <ContextMenu event={count}> 
-          <li>test</li>
-          <li>darkooo</li>
-	  	asdasdasdasd
+      <h1>React Context Menu demo</h1>
+      	  <ContextMenu event={event}> 
+          <ul style={listStyle} className="menu-options">
+            <li style={listItem} onClick={doAction} className="menu-option">Back</li>
+            <li style={listItem} onClick={doAction} className="menu-option">Reload</li>
+            <li style={listItem} onClick={doAction} className="menu-option">Save</li>
+            <li style={listItem} className="menu-option">Save As</li>
+          </ul>
 	  </ContextMenu>
-    <button style={wrapper}  onContextMenu={clicked}>Click me Down</button>
+    <button style={buttonStyle}  onContextMenu={clicked}>Right Click Me</button>
     </div>
   );
 }
