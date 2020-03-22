@@ -1,6 +1,7 @@
 # React Mini Contextmenu
 
-Minimal ContextMenu in React with accessibility support. Live Examples can be found [here](//vkbansal.github.io/react-contextmenu/)
+Minimal ContextMenu in React with accessibility support. No External Dependiencies, pure react component. 
+Live Examples can be found [here]()
 
 ## Getting Started
 
