@@ -10,11 +10,11 @@ No External Dependiencies, pure react component.
 
 ## Table of contents
 
- - [Installation](##installation)
- - [Browser Support](##browser-support)
- - [Usage](##Usage)
- - [Changelog](##changelog)
- - [License](##license)
+ - [Installation](#installation)
+ - [Browser Support](#browser-support)
+ - [Usage](#Usage)
+ - [Changelog](#changelog)
+ - [License](#license)
  
 ## Installation
 
