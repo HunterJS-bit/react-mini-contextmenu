@@ -1,6 +1,6 @@
 {
   "name": "react-mini-contextmenu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple library to build context menu in React",
   "main": "./dist/index.js",
   "scripts": {
@@ -53,6 +53,7 @@
   "keywords": [
     "react",
     "library",
-    "starter"
+    "contextmenu",
+    "context-menu"
   ]
 }

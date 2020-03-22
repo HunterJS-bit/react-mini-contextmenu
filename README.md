@@ -6,7 +6,7 @@ No External Dependiencies, pure react component.
 
 ## Demo
 
-![Alt Text](./images/ReactContextDemo.gif)
+![Alt Text](https://raw.githubusercontent.com/HunterJS-bit/react-mini-contextmenu/master/images/ReactContextDemo.gif)
 
 ## Table of contents
 
