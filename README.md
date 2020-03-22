@@ -4,6 +4,8 @@ Minimal ContextMenu in React with accessibility support. Live Examples can be fo
 
 ## Getting Started
 
+![Alt Text](./images/ReactContextDemo.gif)
+
 ## Installation
 
 Using npm
