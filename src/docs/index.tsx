@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import ContextMenu from '../components/ContextMenu';

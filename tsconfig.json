@@ -7,6 +7,5 @@
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "types": ["@emotion/core"]
   }
 }

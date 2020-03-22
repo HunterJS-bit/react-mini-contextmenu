@@ -1,12 +1,21 @@
 # React Mini Contextmenu
 
-Minimal ContextMenu in React with accessibility support. No External Dependiencies, pure react component. 
-Live Examples can be found [here]()
+Minimal ContextMenu in React with accessibility support. 
 
-## Getting Started
+No External Dependiencies, pure react component. 
+
+## Demo
 
 ![Alt Text](./images/ReactContextDemo.gif)
 
+## Table of contents
+
+ - [Installation](##installation)
+ - [Browser Support](##browser-support)
+ - [Usage](##Usage)
+ - [Changelog](##changelog)
+ - [License](##license)
+ 
 ## Installation
 
 Using npm
@@ -27,7 +36,7 @@ yarn add react-mini-contextmenu
 - Opera >= 34
 - Safari >= 8
 
-## How To Use
+## Usage
 
 ```js
 import Contextmenu from "react-mini-contextmenu"
