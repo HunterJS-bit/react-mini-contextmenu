@@ -15,15 +15,15 @@ git clone https://github.com/Teddarific/react-lib-starter.git
 Rename the new repo to the name of your library, and go through the `package.json` to fill out your own details as well.
 
 Install all the dependencies by running
-`yarn`
+`npm`
 
-To run the library, `yarn start`
+To run the library, `npm start`
 
-To build the library, `yarn build:lib`
+To build the library, `npm build:lib`
 
-To build the docs, `yarn build:docs`
+To build the docs, `npm build:docs`
 
-To publish your library, `yarn publish` or `npm publish`
+To publish your library, `npm publish`
 
 ## Typescript & Emotion
 

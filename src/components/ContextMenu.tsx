@@ -1,4 +1,3 @@
-import { css } from '@emotion/core';
 import React, { useRef, useEffect, useState }  from 'react';
 
 const baseStyles = {
@@ -7,8 +6,8 @@ const baseStyles = {
   background: 'white',
   zIndex: 999,
   outline: 'none',
-  boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-} ;
+  boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
+};
 
 
 export default function ContextMenu(props: any) {
@@ -17,15 +16,19 @@ export default function ContextMenu(props: any) {
   const [state, setState] = useState({
     event: null,
     styles: {
-      top: 0 as number,
-      left: 0 as number,
+      top: 0,
+      left: 0
     }
   });
 
   const inputRef = useRef(null);
 
   useEffect(() => {
-    setState(state => ({ ...state, event: props.event }));
+    if (props.event) {
+      setState(state => ({ ...state, event: props.event }));
+    } else {
+      setState(state => ({ ...state, event: false }));
+    }
   }, [props.event]);
 
   useEffect(() => {
@@ -39,7 +42,11 @@ export default function ContextMenu(props: any) {
   }, [state.event]);
 
   const handleBlur = () => {
-      setState(state => ({ ...state, event: null, styles: { left: 0, top: 0 } }));
+      hideMenu();
+  }
+
+  const hideMenu = () => {
+     setState(state => ({ ...state, event: null, styles: { left: 0, top: 0 } }));
   }
 
   if(state.event) {
