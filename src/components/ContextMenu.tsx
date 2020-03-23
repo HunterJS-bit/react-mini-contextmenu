@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useRef, useEffect, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
 
 const baseStyles = {
   position: 'fixed',
@@ -18,7 +18,7 @@ export interface Event {
   };
 }
 
-export default function ContextMenu(props: any) {
+const ContextMenu = (props: any) => {
   const [state, setState] = useState({
     event: null,
     styles: {
@@ -67,3 +67,5 @@ export default function ContextMenu(props: any) {
   }
   return null;
 }
+
+export default ContextMenu;
