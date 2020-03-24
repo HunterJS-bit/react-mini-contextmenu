@@ -1,6 +1,6 @@
 {
   "name": "react-mini-contextmenu",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple library to build context menu in React",
   "main": "./dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "author": "HunterJS-bit",
   "license": "MIT",
-  "repository": "https://github.com/Teddarific/react-library-starter",
+  "repository": "https://github.com/HunterJS-bit/react-mini-contextmenu.git",
   "files": [
     "dist"
   ],

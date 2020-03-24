@@ -1,4 +1,4 @@
 // eslint-disable-next-line import/extensions
 import ContextMenu from './components/ContextMenu';
 
-export { ContextMenu };
+export default ContextMenu;
